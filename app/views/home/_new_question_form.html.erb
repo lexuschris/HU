@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div class="modal fade" id="NewQuestionModal" tabindex="-1" role="dialog" aria-labelledby="NewQuestionModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="NewQuestionModalLabel">Ask a Question</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for :question, url: '/questions' do %>
+          <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" name="question[email]" class="form-control" id="inputEmail3" placeholder="email" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputQuestion" class="col-sm-2 col-form-label">Question</label>
+          <div class="col-sm-10">
+            <input type="textarea" name="question[body]" class="form-control" id="inputQuestion" placeholder="What would you like to know?">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2">Private</div>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" name="private" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1">
+                Keep question hidden from public view
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

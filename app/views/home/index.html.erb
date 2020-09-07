@@ -1,0 +1,52 @@
+<div>
+<h1>History of the Universe 1.1<br></h1>
+<br>
+</div>
+
+<div class='container'>
+    <% @questions.each do |q| %>
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="<%= q.gravatar %>">
+            </a>
+        </div>
+        <div class="media-body">
+            <h5 class="mt-0"><%= q.email %> asked:</h5>
+            <i><%= time_ago_in_words q.created_at %> ago<br></i>
+            <h4><%= q.body %></h4>
+            <div>
+                <a href="<%= question_path(q) %>" class="btn btn-success btn-xs" style="color: white">Answer question</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <% end %>
+</div>
+
+
+
+
+<hr>
+<%= form_with do %>
+    Form Contents and stuff like this
+<% end %>
+
+<%= form_with(url: "/search", method: "GET") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search!") %>
+<% end %>
+<br>
+
+<h2>Survey time!<br></h2>
+<%= form_with(url: "/pets", method: "GET") do %>
+    <%= label_tag(:pettype, "Which pet do you have?") %><br>
+    <%= check_box_tag(:pet_dog) %>
+    <%= label_tag(:pet_dog, "dog") %><br>
+    <%= check_box_tag(:pet_cat) %>
+    <%= label_tag(:pet_cat, "cat") %><br>
+    <%= submit_tag("Submit Pet") %>
+<% end %>
+<br>
+

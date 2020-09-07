@@ -1,0 +1,35 @@
+<div class="containter">
+    <div class="lead well">
+        <div class="media">
+            <img src="<%= @question.gravatar %>" class="mr-3" alt="...">
+            <div class="media-body">
+                <h4 class="mt-0"><%= @question.email %> asked23:</h4>
+                <%= @question.body %>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#NewAnswerModal">Submit new Answer2</button>
+        </div>
+    </div>
+</div
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+    
+        <%= render 'home/new_answer_form' %>
+    
+        <%= @question.answers do |answer| %>
+            <div class="media">
+                <div class="media-left"
+                    <a href="#">
+                        <img class="media-object" src="<%= answer.gravatar %>">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="mt-0"><%= answer.email %> answered:</h4>
+                    <%= answer.body %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
